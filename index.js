@@ -8,14 +8,14 @@ const knexConfig = require("./knexfile");
 const db = knex(knexConfig.development);
 
 server.get("/", (req, res) => {
-  db("cars2").then(cars => {
+  db("cars3").then(cars => {
     res.status(200).json(cars);
   });
 });
 
 server.post("/", (req, res) => {
   const post = req.body;
-  db("cars2")
+  db("cars3")
     .insert(post, "id")
     .then(post => {
       res.status(200).json(post);
@@ -23,7 +23,7 @@ server.post("/", (req, res) => {
 });
 
 server.delete("/:id", (req, res) => {
-  db("cars2")
+  db("cars3")
     .where("id", "=", req.params.id)
     .del()
     .then(deleted => {
@@ -35,7 +35,7 @@ server.delete("/:id", (req, res) => {
 });
 
 server.put("/:id", (req, res) => {
-  db("cars2")
+  db("cars3")
     .where("id", "=", req.params.id)
     .update(req.body)
     .then(updated => {

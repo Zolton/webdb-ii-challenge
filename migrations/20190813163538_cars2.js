@@ -1,5 +1,5 @@
 exports.up = function(knex) {
-    return knex.schema.createTable("cars2", tbl => {
+    return knex.schema.createTable("cars3", tbl => {
       tbl.increments();
       tbl.string("VIN", 16).unique().notNullable()
       tbl.string("make", 16).notNullable();
@@ -11,6 +11,6 @@ exports.up = function(knex) {
   };
   
   exports.down = function(knex) {
-      return knex.schema.dropTableIfExists("cars")
+      return knex.schema.dropTableIfExists("cars3")
   };
   
